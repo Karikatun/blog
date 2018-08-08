@@ -2,5 +2,12 @@
 
 <%= render 'form' %>
 
+<%= form_with model: @article,  local: true do |form| %>
+
+<p>
+  <%= form.collection_select :category_id, Category.order(:name), :id, :name, class: 'span12' %>
+</p>
+
+  <% end %>
 
 <%= link_to 'Back', articles_path %>
