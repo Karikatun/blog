@@ -28,6 +28,10 @@
   </p>
 
   <p>
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name, class: 'span12' %>
+  </p>
+
+  <p>
     <%= form.submit %>
   </p>
 
