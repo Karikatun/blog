@@ -18,8 +18,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @category = Category.where(params[:category_id]).first
-    @article = @category.articles.create(article_params)
+    @article = Article.create(article_params)
+
 
     if @article.save
       redirect_to @article
@@ -48,6 +48,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :category_id, :image)
   end
 end

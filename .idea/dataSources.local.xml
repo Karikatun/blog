@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails blog: test" uuid="336c803f-031d-4476-a3d6-6e021e36a6b8">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="SQLITE" exact-version="0.0" />
+    </data-source>
+    <data-source name="Rails blog: production" uuid="1d47bea5-3159-4275-8f41-a20f68b917e9">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="SQLITE" exact-version="0.0" />
+    </data-source>
+    <data-source name="Rails blog: development" uuid="63e4c2b2-0d4c-4bca-a82a-132c16869aa8">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="SQLITE" exact-version="0.0" />
+    </data-source>
+  </component>
+</project>

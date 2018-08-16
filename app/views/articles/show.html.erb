@@ -13,6 +13,10 @@
   <%= @article.text %>
 </p>
 
+<p>
+  <%= image_tag @article.image.url(:medium) %>
+</p>
+
 <h2>Comments</h2>
 <%= render 'comments/comment' %>
 
