@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'slim'
+
 gem 'simple_form'
 
 gem 'aws-sdk', '~> 3'

@@ -5117,3 +5117,1006 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 17:48:09 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anton/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.erb:31
+  Rendered articles/_form.html.erb (12.0ms)
+  Rendered articles/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 165ms (Views: 146.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-08-16 17:48:17 +0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TVBcDe3TWYy2CY2tGH4WkVZZhxje3JrwCl7raiJmbY/bwCyHoYrSfUbF16CL3zCiAgXoeMNAdnrQWB3SbFXSVg==", "article"=>{"title"=>"jsfgjsdy", "text"=>"dghnedtyj", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f4754a774c8 @tempfile=#<Tempfile:/tmp/RackMultipart20180816-28187-1wiu1ex.jpg>, @original_filename="hello_html_m4b464284.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"hello_html_m4b464284.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Article"}
+[paperclip] Trying to link /tmp/RackMultipart20180816-28187-1wiu1ex.jpg to /tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg
+[paperclip] Trying to link /tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg to /tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-4ck3uo.jpg
+Command :: file -b --mime '/tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-4ck3uo.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg[0]'
+Command :: convert '/tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg[0]' -auto-orient -resize "300x300>" '/tmp/0a9b380b083227c35ddf4e459485500220180816-28187-fyc0kp'
+[paperclip] Trying to link /tmp/0a9b380b083227c35ddf4e459485500220180816-28187-fyc0kp to /tmp/3e6734e39894d47a5c5e7e7167ae332a20180816-28187-1390b89
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg[0]'
+Command :: convert '/tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg[0]' -auto-orient -resize "100x100>" '/tmp/0a9b380b083227c35ddf4e459485500220180816-28187-16whvgd'
+[paperclip] Trying to link /tmp/0a9b380b083227c35ddf4e459485500220180816-28187-16whvgd to /tmp/88f1713463b099c177307399cc7c3b8320180816-28187-hf7rse
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:21
+[paperclip] Trying to link /tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-1hk5h8p.jpg to /tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-yjhhcw.jpg
+Command :: file -b --mime '/tmp/829de60264ae7db07d76f9f2713d0f7420180816-28187-yjhhcw.jpg'
+  [1m[36mArticle Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "jsfgjsdy"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "category_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "jsfgjsdy"], ["text", "dghnedtyj"], ["category_id", 1], ["created_at", "2018-08-16 14:48:17.727505"], ["updated_at", "2018-08-16 14:48:17.727505"], ["image_file_name", "hello_html_m4b464284.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 105030], ["image_updated_at", "2018-08-16 14:48:17.626831"]]
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:24
+  [1m[36mArticle Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "articles" WHERE "articles"."title" = ? AND "articles"."id" != ? LIMIT ?[0m  [["title", "jsfgjsdy"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:24
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 115ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-08-16 17:48:17 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.erb:3
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  ↳ app/views/comments/_comment.html.erb:1
+  Rendered comments/_comment.html.erb (4.8ms)
+  Rendered comments/_form.html.erb (7.0ms)
+  Rendered articles/show.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles/5/edit" for 127.0.0.1 at 2018-08-16 17:48:21 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:17
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.erb:31
+  Rendered articles/_form.html.erb (3.7ms)
+  Rendered articles/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/articles/5" for 127.0.0.1 at 2018-08-16 17:48:27 +0300
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7ODV+Kj5h9Pr3WMkTnYXoYSbjDCMFefHl+sVjGNww7TnTsKf/uoOgkAZdKRLMXt4sbqmusWGrKBvfVtjscwipA==", "article"=>{"title"=>"jsfgjsdy", "text"=>"dghnedtyj", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f4760326ca8 @tempfile=#<Tempfile:/tmp/RackMultipart20180816-28187-1w1f5pt.jpg>, @original_filename="sport-clipart-middle-school-6.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"sport-clipart-middle-school-6.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Article", "id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:35
+[paperclip] Trying to link /tmp/RackMultipart20180816-28187-1w1f5pt.jpg to /tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg
+[paperclip] Trying to link /tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg to /tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-199ucbv.jpg
+Command :: file -b --mime '/tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-199ucbv.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg[0]'
+Command :: convert '/tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg[0]' -auto-orient -resize "300x300>" '/tmp/8255bc54b1b3fcdba040735ffb05861e20180816-28187-7tc93m'
+[paperclip] Trying to link /tmp/8255bc54b1b3fcdba040735ffb05861e20180816-28187-7tc93m to /tmp/94a92d4f1828cd74bbc36f41cd4365bb20180816-28187-h7kahv
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg[0]'
+Command :: convert '/tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg[0]' -auto-orient -resize "100x100>" '/tmp/8255bc54b1b3fcdba040735ffb05861e20180816-28187-8cf81o'
+[paperclip] Trying to link /tmp/8255bc54b1b3fcdba040735ffb05861e20180816-28187-8cf81o to /tmp/eaa5819ba2b5fdac89c16106a2520bae20180816-28187-1nefzjp
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:35
+[paperclip] Trying to link /tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-7exc5u.jpg to /tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-1pjgt61.jpg
+Command :: file -b --mime '/tmp/a2bb0d5898d22a267d452430070b30a520180816-28187-1pjgt61.jpg'
+  [1m[36mArticle Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "articles" WHERE "articles"."title" = ? AND "articles"."id" != ? LIMIT ?[0m  [["title", "jsfgjsdy"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:35
+  [1m[36mArticle Update (0.5ms)[0m  [1m[33mUPDATE "articles" SET "image_file_name" = ?, "image_file_size" = ?, "image_updated_at" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["image_file_name", "sport-clipart-middle-school-6.jpg"], ["image_file_size", 213385], ["image_updated_at", "2018-08-16 14:48:27.175595"], ["updated_at", "2018-08-16 14:48:27.305610"], ["id", 5]]
+  ↳ app/controllers/articles_controller.rb:35
+[paperclip] deleting /home/anton/Документы/blog/blog/public/system/articles/images/000/000/005/original/hello_html_m4b464284.jpg
+[paperclip] deleting /home/anton/Документы/blog/blog/public/system/articles/images/000/000/005/medium/hello_html_m4b464284.jpg
+[paperclip] deleting /home/anton/Документы/blog/blog/public/system/articles/images/000/000/005/thumb/hello_html_m4b464284.jpg
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:35
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 146ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-08-16 17:48:27 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.erb:3
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  ↳ app/views/comments/_comment.html.erb:1
+  Rendered comments/_comment.html.erb (1.0ms)
+  Rendered comments/_form.html.erb (1.6ms)
+  Rendered articles/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 17:48:29 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-08-16 17:48:31 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:7
+  Rendered categories/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2018-08-16 17:48:32 +0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 41ms (Views: 38.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2018-08-16 18:21:17 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anton/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 211ms (Views: 189.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-16 18:21:21 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 18:21:23 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:21:23 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:18
+  Rendered articles/_form.html.slim (13.2ms)
+  Rendered articles/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 51ms (Views: 49.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:21:47 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:19
+  Rendered articles/_form.html.slim (6.2ms)
+  Rendered articles/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:23:59 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.slim (3.5ms)
+  Rendered articles/new.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+...html_safe((form.label :title br))).to_s)); 
+...                             ^~
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._html_safe((form.label :text br))).to_s)); 
+...                             ^~):
+  
+app/views/articles/_form.html.slim:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/articles/_form.html.slim:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb__4188922645197107960_70035455840280'
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:31:01 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.slim (4.6ms)
+  Rendered articles/new.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:13: syntax error, unexpected tSTRING_BEG, expecting ')'
+..._html_safe((form.label :title 'br))).to_s)); 
+...                              ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+...me), :id, :name, class: 'span12'))).to_s)); 
+...                         ^~~~~~
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:30: unterminated string meets end of file
+          end
+             ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:30: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/articles/_form.html.slim:13: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/articles/_form.html.slim:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/articles/_form.html.slim:30: unterminated string meets end of file
+app/views/articles/_form.html.slim:30: syntax error, unexpected end-of-input, expecting ')'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb__4188922645197107960_70035280880500'
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:31:06 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.slim (3.6ms)
+  Rendered articles/new.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:13: syntax error, unexpected tSTRING_BEG, expecting ')'
+..._html_safe((form.label :title 'br))).to_s)); 
+...                              ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+...me), :id, :name, class: 'span12'))).to_s)); 
+...                         ^~~~~~
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:30: unterminated string meets end of file
+          end
+             ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:30: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/articles/_form.html.slim:13: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/articles/_form.html.slim:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/articles/_form.html.slim:30: unterminated string meets end of file
+app/views/articles/_form.html.slim:30: syntax error, unexpected end-of-input, expecting ')'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb__4188922645197107960_70035458906040'
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:31:08 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (9.0ms)
+  Rendered articles/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 33ms (Views: 30.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 18:31:14 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:31:16 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.5ms)
+  Rendered articles/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-08-16 18:31:17 +0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jEt4M4FB35VTtgTy2BwP8tU/ZhBlUPLq4/UfboTeCb6eVefv1t5sQP8YpB7tRXHTETvXhS+2KUWSTBCW/bXRwA==", "article"=>{"title"=>"", "text"=>"", "category_id"=>"1"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[36mArticle Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:24
+  [1m[36mArticle Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/articles_controller.rb:24
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.3ms)
+  Rendered articles/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 32ms (Views: 25.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 18:33:02 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:33:04 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.slim (5.0ms)
+  Rendered articles/new.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:6: syntax error, unexpected tSTRING_BEG, expecting ')'
+...article.errors.count, "error")'))).to_s)); 
+...                              ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+...me), :id, :name, class: 'span12'))).to_s)); 
+...                         ^~~~~~
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:30: unterminated string meets end of file
+          end
+             ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:30: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/articles/_form.html.slim:6: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/articles/_form.html.slim:22: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/articles/_form.html.slim:30: unterminated string meets end of file
+app/views/articles/_form.html.slim:30: syntax error, unexpected end-of-input, expecting ')'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb__4188922645197107960_70035453734560'
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:38:13 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.1ms)
+  Rendered articles/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-08-16 18:38:16 +0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"twmJnYoHs6ROtqRE/FRji7SpKaT3lt7DG/FaQaZAtLohmfkXxl44Vb56/klv9UW44PVGxOoKMknB96z56HMLYw==", "article"=>{"title"=>"", "text"=>"", "category_id"=>"1"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[36mArticle Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/articles_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:24
+  [1m[36mArticle Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/articles_controller.rb:24
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.3ms)
+  Rendered articles/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 34ms (Views: 25.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 18:38:29 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:38:30 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.9ms)
+  Rendered articles/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:22 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (6.2ms)
+  Rendered articles/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:24 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (6.1ms)
+  Rendered articles/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:35 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.3ms)
+  Rendered articles/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:36 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.8ms)
+  Rendered articles/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:47 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.1ms)
+  Rendered articles/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:48 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.6ms)
+  Rendered articles/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 27ms (Views: 26.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:49 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (7.0ms)
+  Rendered articles/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 31ms (Views: 30.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:50 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (6.3ms)
+  Rendered articles/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:52 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.8ms)
+  Rendered articles/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:43:53 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.4ms)
+  Rendered articles/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 28ms (Views: 27.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:44:04 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.5ms)
+  Rendered articles/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:44:05 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (6.0ms)
+  Rendered articles/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:44:06 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.4ms)
+  Rendered articles/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:44:08 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.0ms)
+  Rendered articles/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:44:09 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (6.0ms)
+  Rendered articles/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:44:18 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (6.3ms)
+  Rendered articles/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 18:44:26 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 18:46:56 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:46:57 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.slim (5.0ms)
+  Rendered articles/new.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:13: syntax error, unexpected '.'
+...mple::Utils.escape_html_safe((. form.label :title))).to_s)); 
+...                              ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:14: syntax error, unexpected ':'
+...mple::Utils.escape_html_safe((: form.text_field :title))).to...
+...                              ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:18: syntax error, unexpected '.'
+...mple::Utils.escape_html_safe((. form.label :text))).to_s)); 
+...                              ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:19: syntax error, unexpected ':'
+...mple::Utils.escape_html_safe((: form.text_area :text))).to_s...
+...                              ^):
+  
+app/views/articles/_form.html.slim:13: syntax error, unexpected '.'
+app/views/articles/_form.html.slim:14: syntax error, unexpected ':'
+app/views/articles/_form.html.slim:18: syntax error, unexpected '.'
+app/views/articles/_form.html.slim:19: syntax error, unexpected ':'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb__4188922645197107960_70035415138600'
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:51:51 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.slim (4.1ms)
+  Rendered articles/new.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:14: syntax error, unexpected '=', expecting ')'
+= form.text_field :title))).to...
+^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:19: syntax error, unexpected '=', expecting ')'
+= form.text_area :text))).to_s...
+^):
+  
+app/views/articles/_form.html.slim:14: syntax error, unexpected '=', expecting ')'
+app/views/articles/_form.html.slim:19: syntax error, unexpected '=', expecting ')'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb__4188922645197107960_70035281082760'
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:52:05 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.slim (3.6ms)
+  Rendered articles/new.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:14: syntax error, unexpected '=', expecting ')'
+= form.text_field :title))).to...
+^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:19: syntax error, unexpected '=', expecting ')'
+= form.text_area :text))).to_s...
+^):
+  
+app/views/articles/_form.html.slim:14: syntax error, unexpected '=', expecting ')'
+app/views/articles/_form.html.slim:19: syntax error, unexpected '=', expecting ')'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb__4188922645197107960_70035458285360'
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:52:06 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (5.1ms)
+  Rendered articles/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:52:24 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:22
+  Rendered articles/_form.html.slim (10.4ms)
+  Rendered articles/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 18:52:25 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.slim (5.7ms)
+  Rendered articles/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:18: syntax error, unexpected ')'
+...ml_safe((form.label :text <br>))).to_s)); 
+...                              ^
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:27: syntax error, unexpected keyword_end, expecting ')'
+...fe_concat(("</p>".freeze)); end; @output_buffer.safe_concat(...
+...                            ^~~
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:28: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/anton/Документы/blog/blog/app/views/articles/_form.html.slim:30: syntax error, unexpected keyword_end, expecting ')'
+          end
+          ^~~):
+  
+app/views/articles/_form.html.slim:18: syntax error, unexpected ')'
+app/views/articles/_form.html.slim:27: syntax error, unexpected keyword_end, expecting ')'
+app/views/articles/_form.html.slim:28: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/articles/_form.html.slim:30: syntax error, unexpected keyword_end, expecting ')'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb__4188922645197107960_70035465763240'
+Started GET "/" for 127.0.0.1 at 2018-08-16 19:07:37 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/anton/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.slim within layouts/application
+  Rendered welcome/index.html.slim within layouts/application (8.1ms)
+Completed 200 OK in 153ms (Views: 147.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:07:39 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  Rendered articles/index.html.slim within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/anton/Документы/blog/blog/app/views/articles/index.html.slim:24: syntax error, unexpected ':', expecting ')'
+-               method: :delete,
+                      ^):
+  
+app/views/articles/index.html.slim:24: syntax error, unexpected ':', expecting ')'
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:07:56 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (14.4ms)
+Completed 200 OK in 55ms (Views: 52.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 19:07:58 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:20
+  Rendered articles/_form.html.slim (16.8ms)
+  Rendered articles/new.html.slim within layouts/application (19.7ms)
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:08:02 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (11.3ms)
+Completed 200 OK in 50ms (Views: 48.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/articles/3" for 127.0.0.1 at 2018-08-16 19:10:26 +0300
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"o5lLUmrxPPv0wEmdr9hIseLgPHxbZWyLhf5gppb9caM1CTvYJqi3CgQME5A8eW6CtrxTHEb5gAFf+JYe2M7Oeg==", "id"=>"3"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:44
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 3]]
+  ↳ app/controllers/articles_controller.rb:44
+  [1m[36mArticle Destroy (0.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/articles_controller.rb:44
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:44
+[paperclip] deleting /home/anton/Документы/blog/blog/public/system/articles/images/000/000/003/original/sport-clipart-middle-school-6.jpg
+[paperclip] deleting /home/anton/Документы/blog/blog/public/system/articles/images/000/000/003/medium/sport-clipart-middle-school-6.jpg
+[paperclip] deleting /home/anton/Документы/blog/blog/public/system/articles/images/000/000/003/thumb/sport-clipart-middle-school-6.jpg
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 20ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:10:26 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (9.2ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:23:41 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (7.5ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 19:23:44 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:20
+  Rendered articles/_form.html.slim (5.1ms)
+  Rendered articles/new.html.slim within layouts/application (7.7ms)
+Completed 200 OK in 29ms (Views: 28.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:23:48 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (6.5ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-08-16 19:23:49 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.slim:6
+  Rendered categories/index.html.slim within layouts/application (4.0ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2018-08-16 19:23:50 +0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7
+  Rendering categories/show.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/categories/show.html.slim:12
+  Rendered categories/show.html.slim within layouts/application (9.4ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2018-08-16 19:24:21 +0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7
+  Rendering categories/show.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/categories/show.html.slim:12
+  Rendered categories/show.html.slim within layouts/application (8.9ms)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-08-16 19:24:26 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.slim:6
+  Rendered categories/index.html.slim within layouts/application (5.0ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:24:29 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (7.7ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2018-08-16 19:24:36 +0300
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.slim within layouts/application
+  Rendered categories/new.html.slim within layouts/application (5.0ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-08-16 19:24:40 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.slim:6
+  Rendered categories/index.html.slim within layouts/application (4.2ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:24:42 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (6.9ms)
+Completed 200 OK in 34ms (Views: 32.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-08-16 19:24:43 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:20
+  Rendered articles/_form.html.slim (6.7ms)
+  Rendered articles/new.html.slim within layouts/application (10.1ms)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:24:45 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (6.6ms)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/2/edit" for 127.0.0.1 at 2018-08-16 19:24:48 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:17
+  Rendering articles/edit.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  ↳ app/views/articles/_form.html.slim:20
+  Rendered articles/_form.html.slim (6.3ms)
+  Rendered articles/edit.html.slim within layouts/application (9.5ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2018-08-16 19:24:53 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9
+  Rendering articles/show.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.slim:4
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/comments/_comment.html.slim:1
+  Rendered comments/_comment.html.slim (3.4ms)
+  Rendered comments/_form.html.slim (24.2ms)
+  Rendered articles/show.html.slim within layouts/application (35.2ms)
+Completed 200 OK in 60ms (Views: 56.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2018-08-16 19:25:15 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9
+  Rendering articles/show.html.slim within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.slim:4
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/comments/_comment.html.slim:1
+  Rendered comments/_comment.html.slim (4.5ms)
+  Rendered comments/_form.html.slim (3.3ms)
+  Rendered articles/show.html.slim within layouts/application (14.6ms)
+Completed 200 OK in 40ms (Views: 37.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2018-08-16 19:26:09 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9
+  Rendering articles/show.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.slim:4
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/comments/_comment.html.slim:1
+  Rendered comments/_comment.html.slim (3.1ms)
+  Rendered comments/_form.html.slim (3.2ms)
+  Rendered articles/show.html.slim within layouts/application (11.9ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2018-08-16 19:27:11 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9
+  Rendering articles/show.html.slim within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.slim:4
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/comments/_comment.html.slim:1
+  Rendered comments/_comment.html.slim (4.5ms)
+  Rendered comments/_form.html.slim (4.3ms)
+  Rendered articles/show.html.slim within layouts/application (16.7ms)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-08-16 19:27:14 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.slim within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  ↳ app/views/articles/index.html.slim:10
+  Rendered articles/index.html.slim within layouts/application (7.7ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.2ms)
+
+
