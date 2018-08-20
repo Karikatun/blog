@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   def index
     @articles = Article.all.order(:title)
@@ -45,6 +44,7 @@ class ArticlesController < ApplicationController
 
     redirect_to @article
   end
+
 
   private
   def article_params

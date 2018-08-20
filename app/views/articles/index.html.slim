@@ -1,4 +1,17 @@
-= link_to 'Login',  "/login"
+- if current_user
+  ul
+    li
+      = current_user.nickname
+    li
+      = link_to "Log out", 'logout', method: :delete
+- else
+    ul
+      li
+        = link_to 'Login',  "/login"
+      li
+        = link_to 'Signup', "/signup"
+
+
 h1
   | Listing articles
 table

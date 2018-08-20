@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+
+  before_action :current_user, only: [:index, :show]
+
+
   def index
     @categories = Category.all
   end
